@@ -21,7 +21,7 @@ export class ClientsService {
       },
     });
 
-    if(!client) {
+    if (!client) {
       throw new NotFoundException('Cliente não encontrado!')
     }
 
@@ -34,8 +34,10 @@ export class ClientsService {
       data: body,
     });
   } catch (error) {
-    if (error instanceof Prisma.PrismaClientKnownRequestError) {
-      if (error.code === 'P2002') {
+    if (
+      error instanceof Prisma.PrismaClientKnownRequestError) {
+      if (error.code === 'P2002'
+      ) {
         throw new ConflictException('CPF já cadastrado!');
       }
     }
@@ -51,9 +53,13 @@ export class ClientsService {
       },
       data: body,
     });
-  }catch (error) {
-  if (error instanceof Prisma.PrismaClientKnownRequestError) {
-    if (error.code === 'P2025') {
+  } catch (error) {
+  if (
+    error instanceof Prisma.PrismaClientKnownRequestError
+  ) {
+    if (
+      error.code === 'P2025'
+    ) {
       throw new NotFoundException('Cliente não encontrado!');
     }
   }
@@ -70,10 +76,14 @@ export class ClientsService {
             id,
           },
         });
-      } catch(error) {
-        if (error instanceof Prisma.PrismaClientKnownRequestError) {
-          if (error.code === 'P2025') {
-            throw new NotFoundException('Cliente não existe!');
+      } catch (error) {
+        if (
+          error instanceof Prisma.PrismaClientKnownRequestError
+        ) {
+          if (
+            error.code === 'P2025'
+          ) {
+            throw new NotFoundException('Cliente não encontrado!');
           }
 
         

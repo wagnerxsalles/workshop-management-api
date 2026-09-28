@@ -15,7 +15,6 @@ findAll() {
 @Get(':id')
 findOne(@Param('id') id: string) {
   return this.clientsService.findOne(id);
-
 }
 
 @Post()
@@ -32,6 +31,5 @@ update(@Param('id') id: string, @Body() body: UpdateClientDto) {
 delete(@Param('id') id: string) {
   return this.clientsService.delete(id);
 }
-
 
 }
